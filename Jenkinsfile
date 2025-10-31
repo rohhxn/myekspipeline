@@ -6,12 +6,7 @@ pipeline {
         KUBE_CONFIG = credentials('kubeconfig')
     }
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/rohhxn/myekspipeline.git' // <-- CHANGE THIS
-            }
-        }
+
 
         stage('Build Docker Image') {
             steps {
