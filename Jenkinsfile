@@ -43,7 +43,7 @@ pipeline {
                     sh "sed -i 's|__IMAGE_TAG__|${imageTag}|g' deployment-temp.yaml"
 
                     // Kubernetes CLI plugin provides withKubeconfig
-                    withKubeconfig([credentialsId: 'kubeconfig', context: 'default']) {
+                    withKubeConfig([credentialsId: 'kubeconfig', context: 'default']) {
                         sh 'kubectl apply -f deployment-temp.yaml'
                         sh 'kubectl apply -f service.yaml'
                         sh 'echo "Waiting for deployment to complete..."'
