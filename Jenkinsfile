@@ -2,11 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = "rohhxn/myapp" // <-- CHANGE THIS
+        // !!! IMPORTANT: Change 'rohhxn' if your Docker Hub username is different !!!
+        DOCKER_IMAGE_NAME = "rohhxn/myapp" 
         KUBE_CONFIG = credentials('kubeconfig')
     }
 
-
+    stages {
+        // NOTE: The 'Checkout Code' stage is removed.
+        // Jenkins automatically checks out the code before the pipeline starts.
 
         stage('Build Docker Image') {
             steps {
